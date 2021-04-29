@@ -3,20 +3,32 @@
 const gulp = require('gulp')
 const sass = require('gulp-sass')
 const csso = require('gulp-csso')
-const htmlmin = require('gulp-htmlmin');
+const htmlmin = require('gulp-htmlmin')
+const sync = require('browser-sync').create()
 
-sass.compiler = require('node-sass')
-
-//compilation from SASS to CSS and minify CSS
-gulp.task('styles', function () {
-    return gulp.src('src/sass/*.sass')
-        .pipe(sass().on('error', sass.logError))
+// Compile sass into CSS & auto-inject into browsers
+gulp.task('sass', function() {
+    return gulp.src("src/sass/*.sass")
+        .pipe(sass())
         .pipe(csso())
-        .pipe(gulp.dest('src/css'))
-})
+        .pipe(gulp.dest("src/css"))
+        .pipe(sync.stream());
+});
 
 gulp.task('minifyHTML', () => {
     return gulp.src('src/*.html')
         .pipe(htmlmin({ collapseWhitespace: true }))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('dist'))
 });
+
+// Static Server + watching scss/html files
+gulp.task('serve', gulp.series('sass', function() {
+
+    sync.init({
+        server: "./src"
+    });
+    gulp.watch("src/sass/*.sass", gulp.series('sass'));
+    gulp.watch("src/*.html").on('change', sync.reload);
+}));
+
+gulp.task('default', gulp.series('serve'));
