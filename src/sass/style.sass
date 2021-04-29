@@ -1,3 +1,5 @@
+//Colors
+$white: #fff
 $dark-blue: #240F3C
 $light-blue: #6E72A1
 $orange: #F85B38
@@ -5,6 +7,11 @@ $grey: #848C92
 
 body
   color: $dark-blue
+  font-family: 'Montserrat', sans-serif
+  font-weight: 600
+
+a:hover
+  text-decoration: none
 
 .button
   display: block
@@ -13,14 +20,22 @@ body
 .header
   padding-top: 30px
   .header__logo
+    font-weight: 700
+    color: $dark-blue
     img
       height: 60px
     .logo-orange
       color: $orange
   .header__signin,
   .header__signup
+    padding: 8px 28px
     display: flex
     justify-content: center
-    padding: 8px 28px
+    color: $light-blue
     border: 1px solid $light-blue
+    transition: all .3s
+    &:hover
+      color: $white
+      background-color: $light-blue
+
 
