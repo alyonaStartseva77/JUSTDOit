@@ -3,6 +3,7 @@ $white: #fff
 $dark-blue: #240F3C
 $light-blue: #6E72A1
 $orange: #F85B38
+$dark-orange: #D42700
 $grey: #848C92
 
 body
@@ -14,8 +15,21 @@ a:hover
   text-decoration: none
 
 .button
-  display: block
+  display: flex
+  justify-content: center
   border-radius: 40px
+  transition: all .3s
+
+.btn-start
+  padding: 12px 28px
+  color: $white
+  background-color: $orange
+  &:hover
+    color: $white
+    background-color: $dark-orange
+
+.logo-orange
+  color: $orange
 
 .header
   padding-top: 30px
@@ -24,18 +38,37 @@ a:hover
     color: $dark-blue
     img
       height: 60px
-    .logo-orange
-      color: $orange
   .header__signin,
   .header__signup
     padding: 8px 28px
-    display: flex
-    justify-content: center
     color: $light-blue
     border: 1px solid $light-blue
-    transition: all .3s
     &:hover
       color: $white
       background-color: $light-blue
+
+.about
+  padding: 90px 0 400px 0
+  @media (max-width: 992px)
+    padding-top: 30px
+  h1
+    font-size: 45px
+    @media (max-width: 576px)
+      font-size: 25px
+    font-weight: 600
+    .about-grey
+      color: $grey
+  p
+    margin: 25px 0
+    font-weight: 500
+    @media (max-width: 768px)
+      margin-top: 20px
+  .about__bg
+    margin-top: -50px
+    @media (max-width: 1200px)
+      margin-top: 0
+    img
+      width: 100%
+
 
 
