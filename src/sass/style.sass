@@ -28,6 +28,14 @@ a:hover
     color: $white
     background-color: $dark-orange
 
+.btn-blue
+  padding: 8px 28px
+  color: $light-blue
+  border: 1px solid $light-blue
+  &:hover
+    color: $white
+    background-color: $light-blue
+
 .span-orange
   color: $orange
 
@@ -41,14 +49,6 @@ a:hover
     color: $dark-blue
     img
       height: 60px
-  .header__signin,
-  .header__signup
-    padding: 8px 28px
-    color: $light-blue
-    border: 1px solid $light-blue
-    &:hover
-      color: $white
-      background-color: $light-blue
 
 .about
   padding: 90px 0 70px 0
@@ -74,7 +74,6 @@ a:hover
       width: 100%
 
 .advantages
-  padding-bottom: 100px
   text-align: center
   h2
     margin-bottom: 30px
@@ -135,3 +134,32 @@ a:hover
       .item__description
         order: -1
         text-align: right
+
+.footer
+  padding: 60px 0 30px 0
+  @media (max-width: 576px)
+    padding-top: 40px
+  hr
+    width: 100%
+    padding-top: 20px
+    @media (max-width: 576px)
+      padding-top: 10px
+    border-width: 2px
+    color: $grey
+  .contacts__item
+    padding: 5px
+    display: inline-block
+    font-size: 40px
+    @media (max-width: 576px)
+      font-size: 30px
+    color: $dark-blue
+    border-radius: 20px
+    transition: all .3s
+  .vk:hover
+    color: $light-blue
+  .inst:hover
+    color: $orange
+  .footer__author
+    font-size: 18px
+    @media (max-width: 576px)
+      font-size: 15px
