@@ -74,27 +74,47 @@ a:hover
       width: 100%
 
 .advantages
+  padding-bottom: 100px
   text-align: center
   h2
+    margin-bottom: 30px
     font-size: 42px
     font-weight: 700
 
   .advantages__item
     position: relative
     &:before
-      content: url(".././img/start-page/advantages/first.png")
       position: absolute
       left: 0
+    &.first__item:before
+      content: url(".././img/start-page/advantages/first.png")
+    &.second__item:before
+      content: url(".././img/start-page/advantages/second.png")
+    &.third__item:before
+      content: url(".././img/start-page/advantages/third.png")
+    &.fourth__item:before
+      content: url(".././img/start-page/advantages/fourth.png")
+    &.fifth__item:before
+      content: url(".././img/start-page/advantages/fifth.png")
+    &.sixth__item:before
+      content: url(".././img/start-page/advantages/sixth.png")
+    &.seventh__item:before
+      content: url(".././img/start-page/advantages/seventh.png")
+    &.eighth__item:before
+      content: url(".././img/start-page/advantages/eigth.png")
     .item__text
       position: relative
       z-index: 1
       display: flex
       align-items: center
-      font-weight: 600
+      font-weight: 700
+      font-size: 18px
       .item__number
         font-size: 100px
+        margin-right: 20px
       .item__description
-        width: 30%
+        width: 35%
+        text-align: left
 
   .advantages__item_reverse
     &:before
@@ -102,5 +122,9 @@ a:hover
       left: auto
     .item__text
       justify-content: flex-end
-    .item__description
-      order: -1
+      .item__number
+        margin-right: 0
+        margin-left: 20px
+      .item__description
+        order: -1
+        text-align: right
