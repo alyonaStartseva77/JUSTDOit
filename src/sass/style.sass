@@ -28,8 +28,11 @@ a:hover
     color: $white
     background-color: $dark-orange
 
-.logo-orange
+.span-orange
   color: $orange
+
+.span-blue
+  color: $light-blue
 
 .header
   padding-top: 30px
@@ -48,7 +51,7 @@ a:hover
       background-color: $light-blue
 
 .about
-  padding: 90px 0 400px 0
+  padding: 90px 0 70px 0
   @media (max-width: 992px)
     padding-top: 30px
   h1
@@ -70,5 +73,34 @@ a:hover
     img
       width: 100%
 
+.advantages
+  text-align: center
+  h2
+    font-size: 42px
+    font-weight: 700
 
+  .advantages__item
+    position: relative
+    &:before
+      content: url(".././img/start-page/advantages/first.png")
+      position: absolute
+      left: 0
+    .item__text
+      position: relative
+      z-index: 1
+      display: flex
+      align-items: center
+      font-weight: 600
+      .item__number
+        font-size: 100px
+      .item__description
+        width: 30%
 
+  .advantages__item_reverse
+    &:before
+      right: 0
+      left: auto
+    .item__text
+      justify-content: flex-end
+    .item__description
+      order: -1
