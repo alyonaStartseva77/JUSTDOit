@@ -1,20 +1,65 @@
 //Colors
 $purple: #6E72A1
-$lightPurple: #8C8FB5
+$mediumPurple: #8C8FB5
+$preMediumPurple: #F1F1F6
+$lightPurple: #FAFAFD
 $darkBlue: #240F3C
 $orange: #F85B38
+$darkOrange: #CF482A
 $white: #fff
+$green: #E2F6E5
+$darkGreen: #BCE0C2
+$grey: #E7E7E7
+$darkGrey: #CCCCCC
+$lightGrey: #FAFAFD
 
 //Font-weight fonts
 $bold: 700
 $semiBold: 600
 $medium: 500
 
+.unselectable
+  -moz-user-select: none /* Mozilla Firefox */
+  -ms-user-select: none /* Internet Explorer (не поддерживается) */
+  -o-user-select: none /* Opera Presto (не поддерживается) */
+  -webkit-user-select: none /* Google Chrome, Opera Next, Safari */
+
+.add-btn
+  padding: 10px 30px
+  font-size: 16px
+  color: $white
+  background-color: $orange
+  border: 0
+  border-radius: 30px
+  &:active,
+  &:hover
+    text-decoration: none
+    color: $white
+    background-color: $darkOrange
+
+.titles-input
+  width: 100%
+  padding: 7px 20px
+  font-size: 16px
+  color: $mediumPurple
+  background-color: $preMediumPurple
+  border-radius: 5px
+  border: 0
+  outline: none
+
+html, body
+  height: 100%
+
 body
   font-family: 'Montserrat', sans-serif
   font-size: 18px
   font-weight: $semiBold
   color: $darkBlue
+
+.main
+  height: 100%
+  display: flex
+  flex-direction: column
 
 header
   padding: 10px 0
@@ -30,7 +75,7 @@ header
       font-weight: $medium
       font-size: 15px
       color: $white
-      background-color: $lightPurple
+      background-color: $mediumPurple
       border: 0
       border-radius: 4px
       outline: none
@@ -39,5 +84,65 @@ header
       color: $darkBlue
       background-color: $white
 
+.todo
+  flex-grow: 1
 
+.todo__lists
+  height: 100%
+  display: flex
+  flex-direction: column
+  padding-top: 15px
+  background: url(".././img/main-page/list.png") no-repeat center
 
+  .lists
+    flex: 1 0 auto
+
+  .lists__item
+    position: relative
+    width: 100%
+    padding: 15px 0
+    margin-bottom: 10px
+    text-align: center
+    border: 1px solid $grey
+    border-radius: 3px
+    transition: all .1s
+
+    .close
+      position: absolute
+      top: 5px
+      right: 5px
+      outline: none
+
+  .empty
+    background-color: $lightGrey
+    &:hover
+      background-color: $grey
+
+  .done
+    background-color: $green
+    &:hover
+      background-color: $darkGreen
+      border-color: $darkGreen
+
+  .process
+    background-color: $grey
+    &:hover
+      background-color: $darkGrey
+      border-color: $darkGrey
+
+  .create-list
+    flex-shrink: 0
+    margin-bottom: 30px
+    .list__title
+      display: block
+      width: 100%
+
+    .add-list
+      margin-top: 10px
+      position: relative
+      left: 50%
+      transform: translate(-50%, 0)
+
+.vertical-line
+  height: 100%
+  border-left: 2px solid $grey

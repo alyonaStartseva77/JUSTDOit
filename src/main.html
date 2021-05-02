@@ -17,7 +17,7 @@
 </head>
 <body>
 
-   <div class="container-fluid">
+   <div class="main container-fluid">
 
        <header class="row justify-content-between align-items-center">
            <div class="header__sort col-lg-3">
@@ -42,12 +42,43 @@
        <main class="todo row">
 
            <div class="todo__lists col-lg-3">
-
+             <div class="lists">
+                 <a type="button" class="lists__item empty">
+                     <span class="item__title unselectable">Список дел на 28.08</span>
+                     <object>
+                         <a type="button" class="close unselectable" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                         </a>
+                     </object>
+                 </a>
+                 <a type="button" class="lists__item done">
+                     <span class="item__title unselectable">Список дел на отпуск</span>
+                     <object>
+                         <a type="button" class="close unselectable" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                         </a>
+                     </object>
+                 </a>
+                 <a type="button" class="lists__item process">
+                     <span class="item__title unselectable">План подготовки к зомбиапокалипсису</span>
+                     <object>
+                         <a type="button" class="close unselectable" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                         </a>
+                     </object>
+                 </a>
+             </div>
+             <div class="create-list">
+                 <label class="list__title">
+                     <input class="titles-input" type="text" placeholder="Введите название списка">
+                 </label>
+                 <a class="add-list add-btn" href="#" type="button">Добавить список</a>
+             </div>
            </div>
 
-           <div class="todo__tasks col-lg-9">
+           <div class="vertical-line"></div>
 
-           </div>
+           <div class="todo__tasks col-lg-9"></div>
 
        </main>
 
