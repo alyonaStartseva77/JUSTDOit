@@ -27,12 +27,8 @@
                    <option value="">Неисполненные</option>
                </select>
            </div>
-
-           <div class="header__user col-lg-2">
-               <span>Alyona</span>
-           </div>
-
-           <div class="header__logo col-lg-1">
+           <div class="header__logo unselectable col-auto">
+               <span class="header__user">Alyona</span>
                <a href="#">
                    <img src="img/main-page/logo.png" alt="JUSTDOit">
                </a>
@@ -43,26 +39,26 @@
 
            <div class="todo__lists col-lg-3">
              <div class="lists">
-                 <a type="button" class="lists__item empty">
-                     <span class="item__title unselectable">Список дел на 28.08</span>
+                 <a href="#" type="button" class="lists__item empty">
+                     <span class="item__title">Список дел на 28.08</span>
                      <object>
-                         <a type="button" class="close unselectable" aria-label="Close">
+                         <a type="button" class="close unselectable d-none" aria-label="Close">
                              <span aria-hidden="true">&times;</span>
                          </a>
                      </object>
                  </a>
-                 <a type="button" class="lists__item done">
-                     <span class="item__title unselectable">Список дел на отпуск</span>
+                 <a href="#" type="button" class="lists__item done">
+                     <span class="item__title">Список дел на отпуск</span>
                      <object>
-                         <a type="button" class="close unselectable" aria-label="Close">
+                         <a type="button" class="close unselectable d-none" aria-label="Close">
                              <span aria-hidden="true">&times;</span>
                          </a>
                      </object>
                  </a>
-                 <a type="button" class="lists__item process">
-                     <span class="item__title unselectable">План подготовки к зомбиапокалипсису</span>
+                 <a href="#" type="button" class="lists__item process">
+                     <span class="item__title">План подготовки к зомбиапокалипсису</span>
                      <object>
-                         <a type="button" class="close unselectable" aria-label="Close">
+                         <a type="button" class="close unselectable d-none" aria-label="Close">
                              <span aria-hidden="true">&times;</span>
                          </a>
                      </object>
@@ -72,13 +68,45 @@
                  <label class="list__title">
                      <input class="titles-input" type="text" placeholder="Введите название списка">
                  </label>
-                 <a class="add-list add-btn" href="#" type="button">Добавить список</a>
+                 <a class="add-list add-btn unselectable" href="#" type="button">Добавить список</a>
              </div>
            </div>
 
-           <div class="vertical-line"></div>
+           <div class="vertical-line col-lg-auto d-lg-block d-none"></div>
 
-           <div class="todo__tasks col-lg-9"></div>
+           <div class="todo__tasks col-lg-8">
+                <div class="title-list">
+                    <span>Список дел на отпуск</span>
+                </div>
+                <div class="tasks">
+                   <div class="tasks__item row align-items-center">
+                       <div class="task-done col-auto">
+                           <input id="checkbox-done" class="custom-checkbox" type="checkbox">
+                           <label for="checkbox-done"></label>
+                       </div>
+                       <a href="#" type="button" class="item col-lg-11 row align-items-center">
+                           <div class="item__urgent"></div>
+                           <span class="item__title">Покормить котика</span>
+                           <object>
+                               <a type="button" class="close unselectable d-none" aria-label="Close">
+                                   <span aria-hidden="true">&times;</span>
+                               </a>
+                           </object>
+                       </a>
+                   </div>
+                </div>
+                <div class="create-task">
+                    <hr>
+                   <div class="wrapper row justify-content-between align-items-center">
+                       <label class="task__title col-lg-6">
+                           <input class="titles-input" type="text" placeholder="Введите название дела">
+                       </label>
+                       <input id="create-checkbox-urgent" class="custom-checkbox" type="checkbox">
+                       <label class="task__urgent unselectable" for="create-checkbox-urgent">Срочное</label>
+                       <a class="add-task add-btn unselectable col-lg-auto" href="#" type="button">Добавить дело</a>
+                   </div>
+                </div>
+           </div>
 
        </main>
 

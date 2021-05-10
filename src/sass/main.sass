@@ -12,18 +12,30 @@ $darkGreen: #BCE0C2
 $grey: #E7E7E7
 $darkGrey: #CCCCCC
 $lightGrey: #FAFAFD
+$isUrgent: #FC8181
 
 //Font-weight fonts
 $bold: 700
 $semiBold: 600
 $medium: 500
 
+html, body
+  height: 100%
+
+body
+  font-family: 'Montserrat', sans-serif
+  font-size: 18px
+  font-weight: $semiBold
+  color: $darkBlue
+
+//class for inability to select text
 .unselectable
   -moz-user-select: none /* Mozilla Firefox */
   -ms-user-select: none /* Internet Explorer (не поддерживается) */
   -o-user-select: none /* Opera Presto (не поддерживается) */
   -webkit-user-select: none /* Google Chrome, Opera Next, Safari */
 
+//class for custom orange button
 .add-btn
   padding: 10px 30px
   font-size: 16px
@@ -38,24 +50,16 @@ $medium: 500
     color: $white
     background-color: $darkOrange
 
+//class for input (entering list and task titles)
 .titles-input
   width: 100%
-  padding: 7px 20px
+  padding: 10px 20px
   font-size: 16px
-  color: $mediumPurple
+  color: $darkBlue
   background-color: $preMediumPurple
   border-radius: 5px
   border: 0
   outline: none
-
-html, body
-  height: 100%
-
-body
-  font-family: 'Montserrat', sans-serif
-  font-size: 18px
-  font-weight: $semiBold
-  color: $darkBlue
 
 .main
   height: 100%
@@ -70,7 +74,7 @@ header
   .header__sort
     select
       width: 100%
-      padding: 5px
+      padding: 8px
       text-align-last: center
       text-align: center
       font-weight: $medium
@@ -85,6 +89,9 @@ header
       color: $darkBlue
       background-color: $white
 
+  .header__user
+    margin-right: 15px
+
 .todo
   flex-grow: 1
 
@@ -98,21 +105,25 @@ header
   .lists
     flex: 1 0 auto
 
-  .lists__item
-    position: relative
-    width: 100%
-    padding: 15px 0
-    margin-bottom: 10px
-    text-align: center
-    border: 1px solid $grey
-    border-radius: 3px
-    transition: all .2s
+    a
+      color: $darkBlue
+      &:hover
+        text-decoration: none
 
-    .close
-      position: absolute
-      top: 5px
-      right: 5px
-      outline: none
+    .lists__item
+      position: relative
+      width: 100%
+      padding: 15px 0
+      margin-bottom: 10px
+      text-align: center
+      border: 1px solid $grey
+      border-radius: 3px
+      transition: all .2s
+      .close
+        position: absolute
+        top: 5px
+        right: 5px
+        outline: none
 
   .empty
     background-color: $lightGrey
@@ -133,7 +144,8 @@ header
 
   .create-list
     flex-shrink: 0
-    margin-bottom: 30px
+    margin-bottom: 40px
+
     .list__title
       display: block
       width: 100%
@@ -146,4 +158,138 @@ header
 
 .vertical-line
   height: 100%
-  border-left: 2px solid $grey
+  border-left: 1px solid $grey
+
+.todo__tasks
+  display: flex
+  flex-direction: column
+  background: url(".././img/main-page/tasks.png") no-repeat center
+
+  a
+    color: $darkBlue
+    &:hover
+      text-decoration: none
+
+  .tasks
+    flex: 1 0 auto
+
+  .title-list
+    margin: 20px 0
+    text-align: center
+    font-size: 27px
+    font-weight: $bold
+
+  .tasks__item
+    margin-bottom: 10px
+
+    .task-done
+      margin-bottom: 1.05em
+
+    .item
+      position: relative
+      width: 100%
+      padding: 20px 0 20px 50px
+      background-color: $lightPurple
+      border: 1px solid $grey
+      border-radius: 3px
+      transition: all .2s
+      &:hover
+        background-color: $preMediumPurple
+
+      .item__urgent
+        margin-right: 30px
+        height: 20px
+        width: 20px
+        background-color: $isUrgent
+        border: 1px solid $isUrgent
+        border-radius: 50%
+        cursor: pointer
+
+      .close
+        position: absolute
+        top: 5px
+        right: 5px
+        outline: none
+
+  .create-task
+    margin-bottom: 30px
+
+    a
+      color: $white
+
+    .task__urgent
+      font-weight: $medium
+
+
+//CUSTOM CHECKBOX
+[class="custom-checkbox"]:not(:checked),
+[class="custom-checkbox"]:checked
+  position: absolute
+  left: 0
+  opacity: 0.01
+
+[class="custom-checkbox"]:not(:checked) + label,
+[class="custom-checkbox"]:checked + label
+  position: relative
+  padding-left: 2.3em
+  font-size: 1.05em
+  line-height: 1.4
+  cursor: pointer
+
+/* checkbox aspect */
+[class="custom-checkbox"]:not(:checked) + label:before,
+[class="custom-checkbox"]:checked + label:before
+  content: ''
+  position: absolute
+  left: 0
+  top: 0
+  width: 1.4em
+  height: 1.4em
+  border: 1px solid $darkGrey
+  background: $white
+  border-radius: .2em
+  box-shadow: inset 0 1px 3px rgba(0,0,0, .1), 0 0 0 rgba(248, 091, 056, 0.2)
+  -webkit-transition: all .275s
+  transition: all .275s
+
+/* checked mark aspect */
+[class="custom-checkbox"]:not(:checked) + label:after,
+[class="custom-checkbox"]:checked + label:after
+  content: '✓'
+  position: absolute
+  top: .525em
+  left: .1em
+  font-size: 1.375em
+  color: $orange
+  line-height: 0
+  -webkit-transition: all .2s
+  transition: all .2s
+
+/* checked mark aspect changes */
+[class="custom-checkbox"]:not(:checked) + label:after
+  opacity: 0
+  -webkit-transform: scale(0) rotate(45deg)
+  transform: scale(0) rotate(45deg)
+
+[class="custom-checkbox"]:checked + label:after
+  opacity: 1
+  -webkit-transform: scale(1) rotate(0)
+  transform: scale(1) rotate(0)
+
+/* Disabled checkbox */
+[class="custom-checkbox"]:disabled:not(:checked) + label:before,
+[class="custom-checkbox"]:disabled:checked + label:before
+  box-shadow: none
+  border-color: $darkGrey
+  background-color: $grey
+
+[class="custom-checkbox"]:disabled:checked + label:after
+  color: $darkGrey
+
+[class="custom-checkbox"]:disabled + label
+  color: $grey
+
+/* Accessibility */
+[class="custom-checkbox"]:checked:focus + label:before,
+[class="custom-checkbox"]:not(:checked):focus + label:before
+  box-shadow: inset 0 1px 3px rgba(0,0,0, .1), 0 0 0 6px rgba(248, 091, 056, .2)
