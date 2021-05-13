@@ -217,19 +217,20 @@ header
     a
       color: $white
 
-    .task__urgent
-      font-weight: $medium
+    .wrapper
+      .task__urgent
+        font-weight: $medium
 
 
 //CUSTOM CHECKBOX
-[class="custom-checkbox"]:not(:checked),
-[class="custom-checkbox"]:checked
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked
   position: absolute
   left: 0
   opacity: 0.01
 
-[class="custom-checkbox"]:not(:checked) + label,
-[class="custom-checkbox"]:checked + label
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label
   position: relative
   padding-left: 2.3em
   font-size: 1.05em
@@ -237,8 +238,8 @@ header
   cursor: pointer
 
 /* checkbox aspect */
-[class="custom-checkbox"]:not(:checked) + label:before,
-[class="custom-checkbox"]:checked + label:before
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before
   content: ''
   position: absolute
   left: 0
@@ -253,8 +254,8 @@ header
   transition: all .275s
 
 /* checked mark aspect */
-[class="custom-checkbox"]:not(:checked) + label:after,
-[class="custom-checkbox"]:checked + label:after
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after
   content: '✓'
   position: absolute
   top: .525em
@@ -266,30 +267,30 @@ header
   transition: all .2s
 
 /* checked mark aspect changes */
-[class="custom-checkbox"]:not(:checked) + label:after
+[type="checkbox"]:not(:checked) + label:after
   opacity: 0
   -webkit-transform: scale(0) rotate(45deg)
   transform: scale(0) rotate(45deg)
 
-[class="custom-checkbox"]:checked + label:after
+[type="checkbox"]:checked + label:after
   opacity: 1
   -webkit-transform: scale(1) rotate(0)
   transform: scale(1) rotate(0)
 
 /* Disabled checkbox */
-[class="custom-checkbox"]:disabled:not(:checked) + label:before,
-[class="custom-checkbox"]:disabled:checked + label:before
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before
   box-shadow: none
   border-color: $darkGrey
   background-color: $grey
 
-[class="custom-checkbox"]:disabled:checked + label:after
+[type="checkbox"]:disabled:checked + label:after
   color: $darkGrey
 
-[class="custom-checkbox"]:disabled + label
+[type="checkbox"]:disabled + label
   color: $grey
 
 /* Accessibility */
-[class="custom-checkbox"]:checked:focus + label:before,
-[class="custom-checkbox"]:not(:checked):focus + label:before
+[type="checkbox"]:checked:focus + label:before,
+[type="checkbox"]:not(:checked):focus + label:before
   box-shadow: inset 0 1px 3px rgba(0,0,0, .1), 0 0 0 6px rgba(248, 091, 056, .2)
